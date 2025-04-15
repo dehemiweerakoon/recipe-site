@@ -22,7 +22,7 @@ function App() {
         <div className="min-h-screen " style={{ backgroundColor: "#f5efe9" }}>
           <div className=" w-full grid grid-cols-12">
             <div
-              className="row-span-[repeat(50,_minmax(0,_1fr))] bg-white sm:col-span-2 shrink-0 col-span-2"
+              className="row-span-[repeat(50,_minmax(0,_1fr))] bg-white sm:col-span-2 shrink-0 col-span-2 sticky left-0 top-0 h-screen border-r-2 border-gray-300"
               id="sidebar"
             >
               <div className="flex items-center sm:hidden h-screen ">
@@ -36,7 +36,7 @@ function App() {
                     Chef Madavi
                   </h3>
 
-                  <img src={recipe} alt="" className="px-1 w-9/12" />
+                  <img src={recipe} alt="" className="px-1 w-9/12"  onClick={()=>{nav("/recipes")}}/>
                   <img src={favorite} alt="" className="px-1 w-9/12" />
                   <img src={about} alt="" className="px-1 w-9/12" />
                   <img src={orders} alt="" className="px-1 w-9/12" />
