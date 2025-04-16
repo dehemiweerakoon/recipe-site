@@ -15,6 +15,7 @@ import Recipes from "./components/Recipes/Recipes";
 import Item from "./components/Item/Item";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Order from "./components/Order/Order";
+import LikePage from "./components/LikePage/LikePage";
 function App() {
    
    const nav = useNavigate();
@@ -74,6 +75,7 @@ function App() {
                   <button
                     type="submit"
                     className="bg-white cursor-pointer border border-black-600 rounded  w-15/16 text-lg flex flex-row justify-center"
+                   onClick={()=>{nav("/fav")}}
                   >
                     <img src={favorite} alt="" className="px-1 w-8 py-1"></img>
                     Favorite
@@ -130,6 +132,7 @@ function App() {
                 <Route path="/recipes/:id" element={<Item/>} />
                 <Route path="/about" element={<AboutUs/>} />
                 <Route path="/orders" element={<Order/>} />
+                <Route path="/fav" element={<LikePage/>}/>
                 </Routes>
            
             </div>
