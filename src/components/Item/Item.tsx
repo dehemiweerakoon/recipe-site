@@ -4,6 +4,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
+
+interface OrderType{
+    id:number
+    itemName: string;
+    cuisine: string;
+    Qty: number;
+}
 interface Recipe {
   id: number;
   name: string;
@@ -62,12 +69,33 @@ const Item = () => {
     );
   };
   const SetOrder =()=>{
+    const current = sessionStorage.getItem("order");
+    let orders:OrderType[] =[]
     const order = {
         itemName: item.name,
         cuisine :item.cuisine,
+        id:item.id,
         Qty: count
-    };
-    sessionStorage.setItem("order", JSON.stringify(order));
+    }; 
+    if (current) {
+        try {
+          const parsed = JSON.parse(current);
+          if (Array.isArray(parsed)) {
+            orders = parsed;
+            parsed.find((order:OrderType) => {
+              if (order.itemName === item.name) {
+                order.Qty += count;
+                return true; // Stop searching if found
+              }
+              return false; // Continue searching
+            });
+          }
+        } catch (err) {
+          console.error("Error parsing existing orders:", err);
+        }
+      }
+      orders.push(order);
+    sessionStorage.setItem("order", JSON.stringify(orders));
     alert("Order Placed Successfully");
   }
 
@@ -114,11 +142,11 @@ const Item = () => {
               title="add"
               onClick={addCount}
             />
-            <button className="sm:absolute sm:end-1/2 bg-[#F7AAAA] py-2 px-10 rounded-lg hidden sm:block" onClick={SetOrder}>
+            <button className="lg:absolute lg:end-1/2 bg-[#F7AAAA] py-2 px-10 rounded-lg hidden lg:block" onClick={SetOrder}>
               Place Order
             </button>
           </div>
-          <button className="m-2 sm:absolute sm:end-1/2 bg-[#F7AAAA] py-2 px-10 rounded-lg block sm:hidden">
+          <button className="m-2 lg:absolute sm:end-1/2 bg-[#F7AAAA] py-2 px-10 rounded-lg block lg:hidden" onClick={SetOrder}>
             Place Order
           </button>
         </div>

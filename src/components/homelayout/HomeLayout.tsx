@@ -10,18 +10,18 @@ const HomeLayout = () => {
                 </h1>
                 <div className="flex flex-row sm:flex gap-10">
                   <div className="sm:absolute sm:my-0 sm:end-2/15 end-2/5 absolute cursor-none">
-                    <h1 className="sm:text-2xl font-bold text-orange-700 text-base">
+                    <h1 className="lg:text-2xl font-bold text-orange-700 text-base">
                       {" "}
                       50 +{" "}
                     </h1>
-                    <h1 className="text-xs sm:text-sm"> Recipes</h1>
+                    <h1 className="text-xs lg:text-sm"> Recipes</h1>
                   </div>
                   <div className="sm:absolute sm:my-0 sm:end-1/15 end-1/5 absolute cursor-none">
-                    <h1 className="sm:text-2xl font-bold text-orange-700 text-base">
+                    <h1 className="lg:text-2xl font-bold text-orange-700 text-base">
                       {" "}
                       10 +
                     </h1>
-                    <h1 className="text-xs sm:text-sm"> Orders</h1>
+                    <h1 className="text-xs lg:text-sm"> Orders</h1>
                   </div>
                 </div>
               </div>

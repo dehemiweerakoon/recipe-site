@@ -53,7 +53,7 @@ const Recipes = () => {
         <div className=" relative text-xl sm:text-2xl mx-3 sm:mx-10 font-medium mb-2">
           Recipe List...
         </div>
-        <div className="sm:grid sm:grid-cols-3 sm:gap-4">
+        <div className="lg:grid lg:grid-cols-3 lg:gap-4">
           {recipeList.length > 0 &&
             recipeList.map((item: any, index: number) => {
               const { fullStar, hasHalfStar, emptyStar } = getSars(item.rating);

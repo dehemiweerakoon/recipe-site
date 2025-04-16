@@ -14,6 +14,7 @@ import NotFound from "./components/NotFound/NotFound";
 import Recipes from "./components/Recipes/Recipes";
 import Item from "./components/Item/Item";
 import AboutUs from "./components/AboutUs/AboutUs";
+import Order from "./components/Order/Order";
 function App() {
    
    const nav = useNavigate();
@@ -24,7 +25,7 @@ function App() {
         <div className="min-h-screen " style={{ backgroundColor: "#f5efe9" }}>
           <div className=" w-full grid grid-cols-12">
             <div
-              className="row-span-[repeat(50,_minmax(0,_1fr))] bg-white sm:col-span-2 shrink-0 col-span-2 sticky left-0 top-0 h-screen border-r-2 border-gray-300"
+              className="row-span-[repeat(50,_minmax(0,_1fr))] bg-white lg:col-span-2 shrink-0 col-span-2 md:col-span-3 sticky left-0 top-0 h-screen border-r-2 border-gray-300"
               id="sidebar"
             >
               <div className="flex items-center sm:hidden h-screen ">
@@ -32,7 +33,7 @@ function App() {
                   <img
                     src={girlImage}
                     alt=""
-                    className="w-10 h-10 object-cover border border-black-600 rounded-full"
+                    className="lg:w-10 lg:h-10 object-cover border border-black-600 rounded-full "
                   />
                   <h3 className="text-center sm:text-xl text-sm">
                     Chef Madavi
@@ -88,7 +89,7 @@ function App() {
                   <button
                     type="submit"
                     className="bg-white cursor-pointer border border-black-600 rounded   w-15/16 text-lg flex flex-row justify-center"
-                  >
+                  onClick={()=>{nav("/orders/")}}>
                     <img src={orders} alt="" className="px-1 w-8 py-1"></img>
                     Orders{" "}
                   </button>
@@ -96,7 +97,7 @@ function App() {
               </div>
             </div>
             <div
-              className="sm:col-span-10 text-start overflow-auto col-span-9 min-h-screen"
+              className="lg:col-span-10 md:col-span-9 text-start overflow-auto col-span-10 min-h-screen"
               id="main bar"
             >
               <div className="relative flex flex-row">
@@ -128,6 +129,7 @@ function App() {
                 <Route path="/recipes" element={<Recipes />} />
                 <Route path="/recipes/:id" element={<Item/>} />
                 <Route path="/about" element={<AboutUs/>} />
+                <Route path="/orders" element={<Order/>} />
                 </Routes>
            
             </div>
