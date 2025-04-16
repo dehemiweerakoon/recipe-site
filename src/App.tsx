@@ -12,6 +12,8 @@ import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import HomeLayout from "./components/homelayout/HomeLayout";
 import NotFound from "./components/NotFound/NotFound";
 import Recipes from "./components/Recipes/Recipes";
+import Item from "./components/Item/Item";
+import AboutUs from "./components/AboutUs/AboutUs";
 function App() {
    
    const nav = useNavigate();
@@ -78,7 +80,8 @@ function App() {
                   <button
                     type="submit"
                     className="bg-white cursor-pointer border border-black-600 rounded w-15/16 text-lg flex flex-row justify-center"
-                  >
+                   onClick={()=>{nav("/about")}} // Navigate to the about page
+                   >
                     <img src={about} alt="" className="px-1 w-8 py-1"></img>
                     About Us
                   </button>
@@ -93,7 +96,7 @@ function App() {
               </div>
             </div>
             <div
-              className="sm:col-span-10 text-start overflow-auto col-span-9"
+              className="sm:col-span-10 text-start overflow-auto col-span-9 min-h-screen"
               id="main bar"
             >
               <div className="relative flex flex-row">
@@ -123,6 +126,8 @@ function App() {
                 <Route path="*" element={<NotFound />} />
                 <Route path="/" element={<HomeLayout />} />
                 <Route path="/recipes" element={<Recipes />} />
+                <Route path="/recipes/:id" element={<Item/>} />
+                <Route path="/about" element={<AboutUs/>} />
                 </Routes>
            
             </div>
