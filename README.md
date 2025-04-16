@@ -38,6 +38,7 @@ A modern and responsive recipe website built with **React** and **Vite**. Discov
     npm install
     ```
 ### 3. Project Structure
+```
 recipe-site/
   ├── public/
   ├── src/
@@ -51,6 +52,7 @@ recipe-site/
   ├── vite.config.ts
   ├── package.json
   └── tsconfig.json
+```
 
 ### ✅ Features
 🧑‍🍳 Browse delicious recipes
