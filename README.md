@@ -1,54 +1,62 @@
-# React + TypeScript + Vite
+# 🍽️ Recipe Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive recipe website built with **React** and **Vite**. Discover delicious recipes, explore details, and enjoy a sleek user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- ⚛️ React (with TypeScript)
+- ⚡ Vite
+- 🎨 CSS / SCSS
+- 📦 gh-pages (for GitHub Pages deployment)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🖥️ Live Demo
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🔗(https://recipe-site-eta.vercel.app/)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 📸 Preview
+
+![image](https://github.com/user-attachments/assets/c6733ae3-636c-433a-9425-634a125ad964)
+
+
+---
+
+## 🛠️ Getting Started
+
+### 1. Clone the Repo
+    ```
+      git clone https://github.com/dehemiweerakoon/recipe-site.git
+      cd recipe-site
+    ```
+### 2. Install Dependencies
+    ```
+    npm install
+    ```
+### 3. Project Structure
+recipe-site/
+  ├── public/
+  ├── src/
+  │   ├── assets/             # Images and static files
+  │   ├── components/         # Reusable React components
+  │   ├── pages/              # Route-based pages
+  │   ├── App.tsx             # Main app component
+  │   └── main.tsx            # Entry point
+  ├── dist/                   # Production build (auto-generated)
+  ├── index.html
+  ├── vite.config.ts
+  ├── package.json
+  └── tsconfig.json
+
+### ✅ Features
+🧑‍🍳 Browse delicious recipes
+
+📄 View full recipe details
+
+🔍 Search/filter recipes (optional)
+
+📱 Fully responsive layout
