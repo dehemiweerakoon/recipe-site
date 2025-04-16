@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
@@ -177,7 +177,7 @@ const Item = () => {
           <div className="flex">
             {Array.from({ length: getSars(item.rating).fullStar }).map(
               (_, index) => (
-                <FaStar className="text-yellow-400" />
+                <FaStar className="text-yellow-400" id={String(index)}/>
               )
             )}
             {getSars(item.rating).hasHalfStar && (
@@ -185,7 +185,7 @@ const Item = () => {
             )}
             {Array.from({ length: getSars(item.rating).emptyStar }).map(
               (_, index) => (
-                <FaRegStar className="text-yellow-400" />
+                <FaRegStar className="text-yellow-400" id={String(index)} />
               )
             )}
           </div>

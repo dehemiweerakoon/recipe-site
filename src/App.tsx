@@ -6,9 +6,8 @@ import orders from "./assets/contact-us.png";
 import about from "./assets/info.png";
 import favorite from "./assets/heart.png";
 import list from "./assets/recipe.png";
-import home from "./assets/home-page.jpg";
 import { IoIosSearch } from "react-icons/io";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import HomeLayout from "./components/homelayout/HomeLayout";
 import NotFound from "./components/NotFound/NotFound";
 import Recipes from "./components/Recipes/Recipes";
@@ -16,10 +15,17 @@ import Item from "./components/Item/Item";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Order from "./components/Order/Order";
 import LikePage from "./components/LikePage/LikePage";
+import Search from "./components/Search/Search";
+import { useState } from "react";
 function App() {
    
    const nav = useNavigate();
+   const [value,setValue] = useState<string>("")
   // Function to navigate to the recipes page
+  const changeHandle= ()=>{
+    setValue((document.getElementById("simple-search") as HTMLInputElement).value)
+    nav(`/search/${value}`)
+  }
   return (
     <>
      
@@ -113,9 +119,10 @@ function App() {
                       className="bg-white border border-white-300 text-gray-900 text-sm rounded-lg focus:ring-white-500 focus:border-white-500 block w-full pl-4 p-2.5"
                       placeholder="Search Recipes..."
                       id="simple-search"
-                    />
+                      value={value}
+                     onChange={()=>{changeHandle()}}/>
                     <div className="absolute inset-y-0 right-2 flex items-center pl-3 pointer-events-auto">
-                      <IoIosSearch className="text-gray-500" />
+                      <IoIosSearch className="text-gray-500" onClick={()=>changeHandle} />
                     </div>
                   </div>
                 </div>
@@ -133,6 +140,7 @@ function App() {
                 <Route path="/about" element={<AboutUs/>} />
                 <Route path="/orders" element={<Order/>} />
                 <Route path="/fav" element={<LikePage/>}/>
+                <Route path="/search/:q" element={<Search/>}/>
                 </Routes>
            
             </div>

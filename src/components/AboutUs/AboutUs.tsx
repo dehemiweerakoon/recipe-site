@@ -1,4 +1,4 @@
-import React from "react";
+
 import foodIcon from "../../assets/foodicon.jpg";
 const AboutUs = () => {
   return (

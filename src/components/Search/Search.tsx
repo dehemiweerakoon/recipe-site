@@ -1,10 +1,10 @@
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CiHeart } from "react-icons/ci";
 
 interface Recipe {
@@ -30,7 +30,8 @@ interface favType {
   cuisine: string;
   id: number;
 }
-const Recipes = () => {
+const Search = () => {
+  const query = useParams().q as string;
   const nav = useNavigate();
   const [idlist, setIdlist] = useState<number[]>([]);
 
@@ -44,7 +45,7 @@ const Recipes = () => {
   const [recipeList, setRecipeList] = useState<Recipe[]>([]);
 
   const getRecipes = async () => {
-    const result = await axios.get("https://dummyjson.com/recipes?limit=50");
+    const result = await axios.get(`https://dummyjson.com/recipes/search?q=${query}`);
     console.log(result.data);
     setRecipeList(result.data.recipes);
   };
@@ -186,4 +187,4 @@ const changeList=()=>{
   );
 };
 
-export default Recipes;
+export default Search;

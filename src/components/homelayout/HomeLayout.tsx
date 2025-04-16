@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import home from "../../assets/home-page.jpg";
 const HomeLayout = () => {
